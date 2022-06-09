@@ -1,0 +1,347 @@
+{
+    "ips_dir": "ips",
+    "rtl_dir": "rtl",
+    "vsim_dir": "sim",
+    "fpgasim_dir": "./fpga/sim",
+    "ip_list": [
+        {
+            "name": "L2_tcdm_hybrid_interco",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "L2_tcdm_hybrid_interco",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "adv_dbg_if",
+            "commit": "66e20f8ef3aae0198f36137ba28c26ff12b47eaa",
+            "server": null,
+            "group": null,
+            "path": "adv_dbg_if",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "apb2per",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "apb/apb2per",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "apb_adv_timer",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "apb/apb_adv_timer",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "apb_fll_if",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "apb/apb_fll_if",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "apb_gpio",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "apb/apb_gpio",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "apb_node",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "apb/apb_node",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "apb_interrupt_cntrl",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "apb_interrupt_cntrl",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "axi_node",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "axi/axi_node",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "axi_slice",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "axi/axi_slice",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "axi_slice_dc",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "axi/axi_slice_dc",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "timer_unit",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "timer_unit",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "common_cells",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "common_cells",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "fpu",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "fpu",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "jtag_pulp",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "jtag_pulp",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "riscv",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "riscv",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "zero-riscy",
+            "commit": "d4d46971ebd5e0a637d2d182af675e7c43078885",
+            "server": null,
+            "group": null,
+            "path": "zero-riscy",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "scm",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "scm",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "generic_FLL",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "generic_FLL",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "tech_cells_generic",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "tech_cells_generic",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "udma_core",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "udma/udma_core",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "udma_uart",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "udma/udma_uart",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "udma_i2c",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "udma/udma_i2c",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "udma_i2s",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "udma/udma_i2s",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "udma_qspi",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "udma/udma_qspi",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "udma_sdio",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "udma/udma_sdio",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "udma_camera",
+            "commit": "tags/pulpissimo-v1.0",
+            "server": null,
+            "group": null,
+            "path": "udma/udma_camera",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "hwpe-ctrl",
+            "commit": "d4c7e56",
+            "server": null,
+            "group": null,
+            "path": "hwpe-ctrl",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "hwpe-stream",
+            "commit": "22daa35",
+            "server": null,
+            "group": null,
+            "path": "hwpe-stream",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "hwpe-mac-engine",
+            "commit": "f3dd56d",
+            "server": null,
+            "group": null,
+            "path": "hwpe-mac-engine",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        },
+        {
+            "name": "pulp_soc",
+            "commit": "113db175cb1b234090f721c948ade86bc4510754",
+            "server": "https://github.com",
+            "group": "pulp-platform",
+            "path": "pulp_soc",
+            "domain": null,
+            "alternatives": null,
+            "remote": "https://github.com/pulp-platform"
+        }
+    ],
+    "rtl_list": [
+        {
+            "name": "tb",
+            "commit": null,
+            "server": null,
+            "group": null,
+            "path": "tb",
+            "domain": null,
+            "alternatives": null
+        },
+        {
+            "name": "vip",
+            "commit": null,
+            "server": null,
+            "group": null,
+            "path": "vip",
+            "domain": null,
+            "alternatives": null
+        },
+        {
+            "name": "pulpissimo",
+            "commit": null,
+            "server": null,
+            "group": null,
+            "path": "pulpissimo",
+            "domain": null,
+            "alternatives": null
+        }
+    ]
+}

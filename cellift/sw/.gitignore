@@ -1,0 +1,4 @@
+/**/*.o
+/**/*.dump
+!/bootrom/bootrom.o
+!/bootrom/bootrom.dump

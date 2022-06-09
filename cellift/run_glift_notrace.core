@@ -1,0 +1,45 @@
+CAPI=2:
+# Copyright 2022 Flavien Solt, ETH Zurich.
+# Licensed under the General Public License, Version 3.0, see LICENSE for details.
+# SPDX-License-Identifier: GPL-3.0-only
+name: "::run_glift_notrace:0.1"
+description: "Run HDAC with GLIFT without traces"
+
+filesets:
+  files_cells:
+    files:
+      - src/ift_boot_rom_hdac.sv
+      - src/model_6144x32_2048x32scm.sv
+      - src/ift_sram.sv
+      - generated/out/glift.sv
+    file_type: systemVerilogSource
+
+  files_dv:
+    files:
+      -  $CELLIFT_DESIGN_PROCESSING_ROOT/common/dv/elf.h : {is_include_file: true}
+      -  $CELLIFT_DESIGN_PROCESSING_ROOT/common/dv/elfloader.cc
+      -  $CELLIFT_DESIGN_PROCESSING_ROOT/common/dv/taintloader.cc
+      -  $CELLIFT_DESIGN_PROCESSING_ROOT/common/dv/common_functions.cc
+      -  $CELLIFT_DESIGN_PROCESSING_ROOT/common/dv/ticks.h : {is_include_file: true}
+      - dv/testbench.h : {is_include_file: true}
+      - dv/toplevel.cc
+    file_type: cppSource
+
+targets:
+  default:
+    default_tool: verilator
+    filesets:
+      - files_cells
+      - files_dv
+    toplevel: soc_domain
+    tools:
+      verilator:
+        mode: cc
+        verilator_options:
+          - '-CFLAGS "-std=c++11 -Wall -DTOPLEVEL_NAME=soc_domain -g -O0"'
+          - '-LDFLAGS "-pthread -lutil"'
+          - "-Wall"
+          - "-Wno-PINCONNECTEMPTY"
+          - "-Wno-fatal"
+          - "-Wno-BLKANDNBLK"
+          - "-Wno-BLKLOOPINIT"

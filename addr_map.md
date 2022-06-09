@@ -1,0 +1,2 @@
+0x1C00_8000 - 0x1C00_A000: private SRAM 1
+0x1C01_0000 - 0x1C08_2000: interleaved SRAM

@@ -1,0 +1,8 @@
+{
+    "bootrom_elf": "sw/bootrom/bootrom.o",
+    "lead_cycles": 0,
+    "toplevel": "soc_domain",
+    "trace_top": "soc_domain",
+    "verilatorprefix": "hdac",
+    "memorywordsize": 32
+}

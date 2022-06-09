@@ -1,0 +1,10 @@
+build
+generated
+statistics
+fusesoc.conf
+traces
+logs
+venv
+*_report.txt
+modelsim
+

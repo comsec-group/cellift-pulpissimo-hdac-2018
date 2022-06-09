@@ -1,0 +1,1 @@
+-march=rv32imc -mabi=ilp32
