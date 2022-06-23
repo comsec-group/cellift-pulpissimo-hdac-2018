@@ -78,7 +78,7 @@ module ift_sram #(
     assign rdata_o_t0[taint_id] = rdata_o_taint_before_conservative[taint_id] | {(DataWidth){was_req_addr_tainted_q | is_mem_fully_tainted_q}};
   end
 
-  logic [DataWidth-1:0] memory [bit [31:0]];
+	logic [DataWidth-1:0] memory [NumWords];
 
 //  localparam string TaintsPath = "../../../taint_data/sram/sram_taint_data.txt";
 
@@ -102,7 +102,7 @@ module ift_sram #(
   end
 
   for (genvar taint_id = 0; taint_id < NumTaints; taint_id++) begin : gen_taints
-    logic [DataWidth-1:0] mem_taints [bit [31:0]];
+	  logic [DataWidth-1:0] mem_taints [NumWords];
 
     always_ff @(posedge clk_i) begin
       if (req_i) begin
