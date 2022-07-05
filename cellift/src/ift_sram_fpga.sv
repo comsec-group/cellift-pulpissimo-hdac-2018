@@ -2,8 +2,6 @@
 // Licensed under the General Public License, Version 3.0, see LICENSE for details.
 // SPDX-License-Identifier: GPL-3.0-only
 
-// Supports interleaving.
-
 module ift_sram #(
   parameter int unsigned NumWords     = 32'd1024, // Number of Words in data array
   parameter int unsigned DataWidth    = 32'd128,  // Data signal width
@@ -78,7 +76,7 @@ module ift_sram #(
     assign rdata_o_t0[taint_id] = rdata_o_taint_before_conservative[taint_id] | {(DataWidth){was_req_addr_tainted_q | is_mem_fully_tainted_q}};
   end
 
-	logic [DataWidth-1:0] memory [NumWords];
+  logic [DataWidth-1:0] memory [NumWords];
 
 //  localparam string TaintsPath = "../../../taint_data/sram/sram_taint_data.txt";
 
@@ -92,31 +90,24 @@ module ift_sram #(
   always_ff @(posedge clk_i) begin
 		if (req_i) begin
       if (we_i) begin
-          for (int i = 0; i < DataWidth; i = i + 1)
-            if (be_i[i>>3])
-              memory[addr_i][i] = wdata_i[i];  // Blocking assignment because some commercial tool does not support non-blocking assignments here.
-        end
-        else
+          memory[addr_i] = wdata_i;  // Blocking assignment because some commercial tool does not support non-blocking assignments here.
+      end else begin
           rdata_o <= memory[addr_i];
       end
+    end
   end
 
   for (genvar taint_id = 0; taint_id < NumTaints; taint_id++) begin : gen_taints
-	  logic [DataWidth-1:0] mem_taints [NumWords];
+    logic [DataWidth-1:0] mem_taints [NumWords];
 
     always_ff @(posedge clk_i) begin
       if (req_i) begin
         if (we_i) begin
-            for (int i = 0; i < DataWidth; i = i + 1)
-              if (be_i[i>>3])
-                mem_taints[addr_i][i] = wdata_i_t0[taint_id][i]; // Blocking assignment because some commercial tool does not support non-blocking assignments here. 
-          end
-          else
-            if (mem_taints.exists(addr_i))
-              rdata_o_taint_before_conservative[taint_id] = mem_taints[addr_i];
-            else
-              rdata_o_taint_before_conservative[taint_id] = '0;
+            mem_taints[addr_i] = wdata_i_t0[taint_id]; // Blocking assignment because some commercial tool does not support non-blocking assignments here. 
+        end else begin
+          rdata_o_taint_before_conservative[taint_id] = mem_taints[addr_i];
         end
+      end
     end
   end
   
