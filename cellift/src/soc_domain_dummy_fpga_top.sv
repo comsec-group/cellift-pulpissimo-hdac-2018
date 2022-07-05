@@ -141,12 +141,6 @@ module soc_domain_fpga_top #(
         output logic all_axi_o
     );
 
-
-
-    // Clocks
-    assign slow_clk_i = ref_clk_i;
-    assign test_clk_i = ref_clk_i;
-
     // SoC
     logic [7:0]                       soc_jtag_reg_i;
     logic [7:0]                       soc_jtag_reg_o;
