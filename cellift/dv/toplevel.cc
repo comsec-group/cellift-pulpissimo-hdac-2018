@@ -17,17 +17,17 @@ static bool is_autostop(void)
   return autostop_env != NULL;
 }
 
-// Sets the n LSBs to 1 and the rest to 0.
-static uint32_t set_n_lsbs (int n) {
-  // Could be more efficient but only called 1 time so ok
-  assert (n >= 0);
-  assert (n <= 32);
-  uint32_t ret = 0;
-  for (int i = 0; i < n; i++) {
-    ret |= 1 << i;
-  }
-  return ret;
-}
+// // Sets the n LSBs to 1 and the rest to 0.
+// static uint32_t set_n_lsbs (int n) {
+//   // Could be more efficient but only called 1 time so ok
+//   assert (n >= 0);
+//   assert (n <= 32);
+//   uint32_t ret = 0;
+//   for (int i = 0; i < n; i++) {
+//     ret |= 1 << i;
+//   }
+//   return ret;
+// }
 
 /**
  * Runs the testbench.
@@ -130,7 +130,7 @@ static unsigned long run_test(Testbench *tb, int simlen, const char* inject_in_r
   // Preinject if requested (typically to find registers that are not being reset correctly)
 #if !defined(IS_VANILLA) && !defined(IS_PASSTHROUGH)
   if (preinject_into_gpio_lock_env != NULL) {
-    tb->module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__soc_peripherals_i__02eapb_gpio_i__DOT__r_gpio_lock_t0 = -1;
+    // tb->module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__soc_peripherals_i__02eapb_gpio_i__DOT__r_gpio_lock_t0 = -1;
     tb->tick(2);
   }
 #endif // !defined(IS_VANILLA) && !defined(IS_PASSTHROUGH)
@@ -155,7 +155,7 @@ static unsigned long run_test(Testbench *tb, int simlen, const char* inject_in_r
     start = std::chrono::steady_clock::now();
     tb->tick(injection_time);
     // Inject the taint into register x2
-    tb->module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__fc_subsystem_i__02eFC_CORE__02elFC_CORE__DOT__id_stage_i__DOT__registers_i__DOT__mem_t0[2U] = -1;
+    // tb->module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__fc_subsystem_i__02eFC_CORE__02elFC_CORE__DOT__id_stage_i__DOT__registers_i__DOT__mem_t0[2U] = -1;
     tb->tick(simlen-injection_time);
     stop = std::chrono::steady_clock::now();
     return std::chrono::duration_cast<std::chrono::milliseconds>(stop - start).count();

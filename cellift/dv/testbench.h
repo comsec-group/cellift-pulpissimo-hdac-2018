@@ -39,15 +39,15 @@ static inline bool is_mem_addr_accessed(std::string prefix, unsigned char *reqn_
 #ifdef IS_VANILLA
   bool is_we = (!(*wen_ptr>>1)) & ((*be_ptr & 0x10U) >> 4) & 1;
   if (verbose && is_req && is_we) {
-    printf("%s: 0x%4lx, we: %d, mask: 0x%x, req: %d\n", prefix.c_str(), *addr_ptr << 2, is_we, addr_mask, is_req);
-    printf("Addr ptr val: %x, addr val: %x\n", *addr_ptr << 2, addr);
+    printf("%s: 0x%4x, we: %d, mask: 0x%x, req: %d\n", prefix.c_str(), *addr_ptr << 2, is_we, addr_mask, is_req);
+    printf("Addr ptr val: %x, addr val: %lx\n", *addr_ptr << 2, addr);
   }
   return is_req && is_we && ((*addr_ptr << 2) & addr_mask) == addr;
 #else // IS_VANILLA
   bool is_we = (!(*wen_ptr>>4)) & ((*be_ptr & 0x10000U) >> 16) & 1;
   if (verbose && is_req && is_we) {
-    printf("%s: 0x%4lx, we: %d, mask: 0x%x, req: %d\n", prefix.c_str(), *addr_ptr >> 13, is_we, addr_mask, is_req);
-    printf("Addr ptr val: %x, addr val: %x\n", *addr_ptr >> 13, addr);
+    printf("%s: 0x%4x, we: %d, mask: 0x%x, req: %d\n", prefix.c_str(), *addr_ptr >> 13, is_we, addr_mask, is_req);
+    printf("Addr ptr val: %x, addr val: %lx\n", *addr_ptr >> 13, addr);
   }
   return is_req && is_we && ((*addr_ptr >> 13) & addr_mask) == addr;
 #endif
@@ -108,17 +108,17 @@ class Testbench {
 
 #ifdef IS_VANILLA
       if (autostop) {
-        if (is_mem_addr_accessed("Addr: ", &(module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__i_soc_interconnect_wrap__DOT__mem_pri_csn), &(module_->rootp->vlSymsp->TOP.__PVT__soc_domain__DOT__pulp_soc_i__DOT__s_mem_l2_pri_bus__BRA__1__KET__->add), &(module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__i_soc_interconnect_wrap__DOT__mem_pri_wen), &(module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__i_soc_interconnect_wrap__DOT____Vcellout__i_soc_interconnect__L2_pri_BE_o), 0, 0x1FFF, true)) {
-          printf("Mem accessed!\n");
-          return true;
-        }
+        // if (is_mem_addr_accessed("Addr: ", &(module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__i_soc_interconnect_wrap__DOT__mem_pri_csn), &(module_->rootp->vlSymsp->TOP.__PVT__soc_domain__DOT__pulp_soc_i__DOT__s_mem_l2_pri_bus__BRA__1__KET__->add), &(module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__i_soc_interconnect_wrap__DOT__mem_pri_wen), &(module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__i_soc_interconnect_wrap__DOT____Vcellout__i_soc_interconnect__L2_pri_BE_o), 0, 0x1FFF, true)) {
+        //   printf("Mem accessed!\n");
+        //   return true;
+        // }
       }
 #else // IS_VANILLA
       if (autostop) {
-        if (is_mem_addr_accessed("Addr: ", &(module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__i_soc_interconnect_wrap__02emem_pri_csn), &(module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__i_soc_interconnect_wrap__02emem_pri_add), &(module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__i_soc_interconnect_wrap__02ei_soc_interconnect__DOT__PER_data_wen_TO_BRIDGE), &(module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__i_soc_interconnect_wrap__02ei_soc_interconnect__DOT__PER_data_be_TO_BRIDGE), 0, 0x1FFF, true)) {
-          printf("Mem accessed!\n");
-          return true;
-        }
+        // if (is_mem_addr_accessed("Addr: ", &(module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__i_soc_interconnect_wrap__02emem_pri_csn), &(module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__i_soc_interconnect_wrap__02emem_pri_add), &(module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__i_soc_interconnect_wrap__02ei_soc_interconnect__DOT__PER_data_wen_TO_BRIDGE), &(module_->rootp->vlSymsp->TOP.soc_domain__DOT__pulp_soc_i__DOT__i_soc_interconnect_wrap__02ei_soc_interconnect__DOT__PER_data_be_TO_BRIDGE), 0, 0x1FFF, true)) {
+        //   printf("Mem accessed!\n");
+        //   return true;
+        // }
       }
 #endif // IS_VANILLA
 
